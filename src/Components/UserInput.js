@@ -2,9 +2,9 @@ import React from "react";
 
 const UserInput = ({ nextStep, handleChange, values }) => {
     const Continue = e => {
-        e.preventDefault();
         nextStep();
       }
+
   return (
     <label>
       Movie

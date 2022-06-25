@@ -1,8 +1,11 @@
 import React from 'react'
 import axios from "axios";
+import { useEffect, useState } from "react";
 
 
 const MovieList = ({ nextStep, handleChange, values }) => {
+
+  const [loading,setLoading] = useState(false);
 
   const options = {
     method: "GET",
@@ -13,8 +16,32 @@ const MovieList = ({ nextStep, handleChange, values }) => {
       "X-RapidAPI-Host": "mdblist.p.rapidapi.com",
     },
   };
-  
-  axios
+
+  const movieList = values.movieArr.map((movie) => {
+    return (
+      <button key={movie.imdbid} >{movie.title}</button>
+    )
+  })
+
+  function handleID  () {
+    console.log("Clicked");
+  }
+
+
+  const moviesFunc = async () => {   
+      const data = await axios
+      .request(options)
+      .then((response) => {
+        values.movieArr = response.data.search;
+      })
+      .catch((error) => {
+        console.log(error)
+      }).finally(() => {
+        setLoading(true);
+      })
+  }
+  /*
+   axios
       .request(options)
       .then((response) => {
         values.movieArr = response.data.search;
@@ -23,11 +50,12 @@ const MovieList = ({ nextStep, handleChange, values }) => {
       .catch((error) => {
         console.log(error)
       })
+*/
+  useEffect(() => {
+    moviesFunc()
+  },[])
 
-  
-  return (
-    <h1>{values.movieArr[0].title}</h1>
-  )
+  return loading ? <div>{movieList}</div> : <h1>Loading...</h1>
 }
 
 export default MovieList

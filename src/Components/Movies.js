@@ -28,6 +28,7 @@ export default class Movies extends Component {
     this.setState({ [input]: e.target.value });
   };
 
+
   render() {
     const {step} = this.state;
     const {userMovie,movieArr,rottenScore,movieId,imdbScore,otherScore} = this.state;
