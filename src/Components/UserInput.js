@@ -1,0 +1,23 @@
+import React from "react";
+
+const UserInput = ({ nextStep, handleChange, values }) => {
+    const Continue = e => {
+        e.preventDefault();
+        nextStep();
+      }
+  return (
+    <label>
+      Movie
+      <input
+        type="text"
+        placeholder="Enter a movie"
+        value={values.userMovie}
+        onChange={handleChange('userMovie')}
+      />
+      <button onClick={ Continue }>Next</button>x
+    </label>
+    
+  );
+};
+
+export default UserInput;
