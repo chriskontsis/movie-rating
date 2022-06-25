@@ -14,7 +14,7 @@ const UserInput = ({ nextStep, handleChange, values }) => {
         value={values.userMovie}
         onChange={handleChange('userMovie')}
       />
-      <button onClick={ Continue }>Next</button>x
+      <button onClick={ Continue }>Next</button>
     </label>
     
   );
