@@ -19,12 +19,12 @@ const MovieList = ({ nextStep, handleChange, values }) => {
 
   const movieList = values.movieArr.map((movie) => {
     return (
-      <button key={movie.imdbid} >{movie.title}</button>
+      <button onClick={()=>toggleClick(movie.imdbid)} key={movie.imdbid}>{movie.title}</button>
     )
   })
 
-  function handleID  () {
-    console.log("Clicked");
+  const toggleClick = (input) => {
+    values.movieId = input;
   }
 
 
@@ -40,17 +40,7 @@ const MovieList = ({ nextStep, handleChange, values }) => {
         setLoading(true);
       })
   }
-  /*
-   axios
-      .request(options)
-      .then((response) => {
-        values.movieArr = response.data.search;
-        console.log(values.movieArr)
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-*/
+  
   useEffect(() => {
     moviesFunc()
   },[])
