@@ -8,7 +8,7 @@ export default class Movies extends Component {
     step: 1,
     movieArr: [],
     userMovie: "",
-    movieId: "",
+    movieId: '',
     rottenScore: "",
     imdbScore: "",
     otherScore: "",
@@ -27,6 +27,9 @@ export default class Movies extends Component {
   handleChange = (input) => (e) => {
     this.setState({ [input]: e.target.value });
   };
+  handleMovieId = (input) => {
+    this.setState({movieId: input});
+  }
 
 
   render() {
@@ -50,12 +53,16 @@ export default class Movies extends Component {
                 nextStep={this.nextStep}
                 handleChange={this.handleChange}
                 values={ values }
+                handleMovieId = {this.handleMovieId}
                 />
             )
         case 3:
             return (
                 <Ratings
-            
+                prevStep = {this.prevStep}
+                nextStep={this.nextStep}
+                handleChange={this.handleChange}
+                values={ values }
                  />
             )
         default:

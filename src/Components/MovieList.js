@@ -1,9 +1,10 @@
 import React from 'react'
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useControlled } from '@material-ui/core';
 
 
-const MovieList = ({ nextStep, handleChange, values }) => {
+const MovieList = ({ nextStep, handleChange, values, handleMovieId }) => {
 
   const [loading,setLoading] = useState(false);
 
@@ -19,12 +20,12 @@ const MovieList = ({ nextStep, handleChange, values }) => {
 
   const movieList = values.movieArr.map((movie) => {
     return (
-      <button onClick={()=>toggleClick(movie.imdbid)} key={movie.imdbid}>{movie.title}</button>
+      <button onClick={()=>{toggleClick(movie.imdbid); handleMovieId(movie.imdbid)}} key={movie.imdbid}>{movie.title}</button>
     )
   })
 
   const toggleClick = (input) => {
-    values.movieId = input;
+    nextStep();
   }
 
 
@@ -40,7 +41,7 @@ const MovieList = ({ nextStep, handleChange, values }) => {
         setLoading(true);
       })
   }
-  
+
   useEffect(() => {
     moviesFunc()
   },[])
