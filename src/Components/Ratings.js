@@ -16,11 +16,15 @@ const Ratings = ({ nextStep, handleChange, values }) => {
     }
   };
   
-  const moviesFunc = async () => {   
+  const movieData = async () => {   
     const data = await axios
     .request(options)
     .then((response) => {
-      console.log(response);
+      values.rottenScore = response.data.ratings[4].value;
+      values.imdbScore = response.data.ratings[0].value;
+      values.trakt = response.data.ratings[3].value;
+      values.rottenAudience = response.data.ratings[5].value;
+      values.metacritic = response.data.ratings[1].value;
     })
     .catch((error) => {
       console.log(error)
@@ -30,12 +34,24 @@ const Ratings = ({ nextStep, handleChange, values }) => {
 }
 
 useEffect(() => {
-  moviesFunc()
+  movieData()
 },[])
 
 
 
-return loading ? <div>Done</div> : <h1>Loading...</h1>
+
+
+return loading ? 
+<div>
+  <h1>{values.userMovie}</h1>
+  <p>{values.imdbScore}</p>
+  <p>{values.rottenScore}</p>
+  <p>{values.rottenAudience}</p>
+  <p>{values.trakt}</p>
+  <p>{values.metacritic}</p>
+</div> 
+
+: <h1>Loading...</h1>
 }
 
 export default Ratings

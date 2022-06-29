@@ -10,8 +10,10 @@ export default class Movies extends Component {
     userMovie: "",
     movieId: '',
     rottenScore: "",
+    rottenAudience: "",
     imdbScore: "",
-    otherScore: "",
+    metacritic: "",
+    trakt: "",
   };
 
   prevStep = () => {
@@ -34,8 +36,8 @@ export default class Movies extends Component {
 
   render() {
     const {step} = this.state;
-    const {userMovie,movieArr,rottenScore,movieId,imdbScore,otherScore} = this.state;
-    const values = {userMovie,rottenScore,movieId,imdbScore,otherScore, movieArr};
+    const {userMovie,movieArr,rottenScore,movieId,imdbScore,trakt, rottenAudience, metacritic} = this.state;
+    const values = {userMovie,rottenScore,movieId,imdbScore,trakt, movieArr, rottenAudience, metacritic};
 
     switch(step){
         case 1:
