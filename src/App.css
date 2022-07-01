@@ -1,41 +1,13 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 #page-container {
   display: flex;
   align-items: center;
@@ -45,13 +17,63 @@
 }
 
 #landing-img {
-  height: 400px;
-  width: 400px;
+  height: 500px;
+  width: 500px;
 }
 
 #form-container {
+  background: rgba(255, 255, 255, .06);
+  padding: 3em;
   height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 400px;
+  border-radius: 20px;
+  border-left: 1px solid rgba(255,255,255,0.3);
+  border-top: 1px solid rgba(255,255,255,0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 20px 20px 40px -6px rgba(0,0,0,.2);
+  text-align: center;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+
+#container-items {  
+  width: 100%;
+  margin-top: 72px;
+} 
+
+#input-form {
+  margin-top: 72px;
+}
+
+#next-button {
+  font-weight: 500;
+  margin-top: 24px;
+  background: transparent;
+  width: 150px;
+  height: 32px;
+  text-align: center;
+  border-radius: 20px;
+  border: none;
+  border-left: 1px solid rgba(255,255,255,0.3);
+  border-top: 1px solid rgba(255,255,255,0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 20px 20px 40px -6px rgba(0,0,0,.2);
+  
+}
+#input-form {
+  background: transparent;
+  width: 150px;
+  height: 32px;
+  text-align: center;
+  border-radius: 20px;
+  border: none;
+  border-left: 1px solid rgba(255,255,255,0.3);
+  border-top: 1px solid rgba(255,255,255,0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 20px 20px 40px -6px rgba(0,0,0,.2);
+
+}
+
+#next-button:hover {
+  transform: scale(1.07);
 }
