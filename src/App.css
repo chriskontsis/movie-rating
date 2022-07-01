@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+#page-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0;
+  height: 100vh;
+}
+
+#landing-img {
+  height: 400px;
+  width: 400px;
+}
+
+#form-container {
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
