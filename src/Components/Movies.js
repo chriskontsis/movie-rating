@@ -50,6 +50,7 @@ export default class Movies extends Component {
             )
         case 2:
             return (
+              <div>
                 <MovieList
                 prevStep = {this.prevStep}
                 nextStep={this.nextStep}
@@ -57,6 +58,7 @@ export default class Movies extends Component {
                 values={ values }
                 handleMovieId = {this.handleMovieId}
                 />
+              </div>
             )
         case 3:
             return (
