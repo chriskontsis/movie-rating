@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useControlled } from "@material-ui/core";
 import "../App.css";
 
-const MovieList = ({ nextStep, handleChange, values, handleMovieId }) => {
+const MovieList = ({ nextStep, handleChange, values, handleMovieId, handleMovieTitle }) => {
   const [loading, setLoading] = useState(false);
 
   const options = {
@@ -25,6 +25,7 @@ const MovieList = ({ nextStep, handleChange, values, handleMovieId }) => {
             onClick={() => {
               toggleClick(movie.imdbid);
               handleMovieId(movie.imdbid);
+              handleMovieTitle(movie.tite);
             }}
             key={movie.imdbid}
             style={{listStyle: 'none', cursor:"pointer"}}
